@@ -7,7 +7,7 @@ WORKDIR /build
 RUN git clone --recursive https://github.com/cuberite/cuberite.git .
 
 WORKDIR /build/build
-RUN cmake -DCMAKE_BUILD_TYPE=RELEASE -DDISABLE_SYSTEM_LUA=1 -DWHOLE_PROGRAM_OPTIMISATION=1 .. && make -j$(nproc) && mkdir /cuberite && cp -Lr /build/build/Server/* /cuberite
+RUN cmake -DCMAKE_BUILD_TYPE=RELEASE -DDISABLE_SYSTEM_LUA=1 -DWHOLE_PROGRAM_OPTIMISATION=1 -DNO_NATIVE_OPTIMIZATION=1 .. && make -j$(nproc) && mkdir /cuberite && cp -Lr /build/build/Server/* /cuberite
 
 FROM ubuntu as final
 WORKDIR /
