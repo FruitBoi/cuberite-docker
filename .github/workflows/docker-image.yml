@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag FruitBoi/cuberite
+      run: docker build . --file Dockerfile --tag fruitboi/cuberite
